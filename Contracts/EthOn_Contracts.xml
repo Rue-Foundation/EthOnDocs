@@ -1,0 +1,1917 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns="http://ethon.consensys.net/Contracts/"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:ethon="http://ethon.consensys.net/"
+   xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+   xmlns:ns1="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_JUMPI">
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">57</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Conditionally alter the program counter.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">JUMPI</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH15">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH15</name>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdfs:comment xml:lang="en">Place 15 byte item on the stack.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">6e</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/stackItemsRemoved">
+    <rdfs:comment xml:lang="en">Specifies the number of items removed from the stack when executing an Opcode.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">stack items removed</rdfs:label>
+    <ethon:suggestedStringRepresentation>stackItemsRemoved</ethon:suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_RETURNDATACOPY">
+    <ns1:isRequiredBy rdf:resource="http://ethon.consensys.net/ProtocolVariant_Byzantium"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">3e</hexValue>
+    <rdfs:comment xml:lang="en">This opcode has similar semantics to `CALLDATACOPY`, but instead of copying data from the call data, it copies data from the return data buffer. Furthermore, accessing the return data buffer beyond its size results in a failure, i.e. if `start + length` overflows or results in a value larger than `RETURNDATASIZE`, the current call stops in an out-of-gas condition. In particular, reading 0 bytes from the end of the buffer will read 0 bytes; reading 0 bytes from one-byte out of the buffer causes an exception.</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RETURNDATACOPY</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DELEGATECALL">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</cost>
+    <ns1:isRequiredBy rdf:resource="http://ethon.consensys.net/ProtocolVariant_Homestead"/>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">f4</hexValue>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DELEGATECALL</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Message-call into this account with an alternative account's code, but persisting the current values for sender and value.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_LOG2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LOG2</name>
+    <rdfs:comment xml:lang="en">Append log record with two topics.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1125</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">a2</hexValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/hasOutput">
+    <ethon:suggestedStringRepresentation>hasOutput</ethon:suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">has Output</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Output"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
+    <rdfs:comment xml:lang="en">Relates a Function to an Output of that Function. A Function may have 0 or more Outputs but an Output can only belong to a single Function.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Place 9 byte item on the stack.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH9</name>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">68</hexValue>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP3">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP3</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">82</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Duplicate 3rd stack item.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_CALLDATACOPY">
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">37</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</stackItemsAdded>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Get size of code running in current environment.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CALLDATACOPY</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH12">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">6b</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH12</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Place 12 byte item on the stack.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP10">
+    <rdfs:comment xml:lang="en">Duplicate 10th stack item.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP10</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">89</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP2">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</stackItemsRemoved>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">81</hexValue>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdfs:comment xml:lang="en">Duplicate 2nd stack item.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP2</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH11">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">6a</hexValue>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH11</name>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdfs:comment xml:lang="en">Place 11 byte item on the stack.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/value">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ethon:suggestedStringRepresentation>value</ethon:suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+    <rdfs:comment xml:lang="en">The actual value of an InputValue or OutputValue. It is of the type defined in the Input or Output of the InputValue or OutputValue.</rdfs:comment>
+    <rdfs:label xml:lang="en">value</rdfs:label>
+    <rdfs:domain rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab19"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH6">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH6</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">65</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Place 6 byte item on the stack.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_XOR">
+    <rdfs:comment xml:lang="en">Bitwise XOR operation.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">18</hexValue>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XOR</name>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH32">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdfs:comment xml:lang="en">Place 32 byte item on the stack.</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH32</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">7f</hexValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_BALANCE">
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">31</hexValue>
+    <rdfs:comment xml:lang="en">Get balance of the given account.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BALANCE</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsAdded>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH24">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH24</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">77</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdfs:comment xml:lang="en">Place 24 byte item on the stack.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_LOG4">
+    <rdfs:comment xml:lang="en">Append log record with four topics.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LOG4</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1875</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">a4</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</stackItemsAdded>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH10">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH10</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">69</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdfs:comment xml:lang="en">Place 10 byte item on the stack.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH3">
+    <rdfs:comment xml:lang="en">Place 3 byte item on the stack.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH3</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">62</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP5">
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">94</hexValue>
+    <rdfs:comment xml:lang="en">Exchange 1st and 6th stack items.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP5</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</stackItemsAdded>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH14">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">6d</hexValue>
+    <rdfs:comment xml:lang="en">Place 14 byte item on the stack.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH14</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP12">
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">8b</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP12</name>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Duplicate 12th stack item.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH20">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH20</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">73</hexValue>
+    <rdfs:comment xml:lang="en">Place 20 byte item on the stack.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_TIMESTAMP">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TIMESTAMP</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">42</hexValue>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <rdfs:comment xml:lang="en">Get the block's timestamp.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/hasFunctionSelector">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Relates a function to a function selector (also "signature") that identifies it.</rdfs:comment>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ethon:suggestedStringRepresentation>hasFunctionSelector</ethon:suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/FunctionSelector"/>
+    <rdfs:label xml:lang="en">has function selector</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_JUMPDEST">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">5b</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdfs:comment xml:lang="en">Mark a valid destination for jumps. This operation has no effect on machine state during execution.</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">JUMPDEST</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/hasInputValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:label xml:lang="en">has Input Value</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
+    <rdfs:domain rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab4"/>
+    <ethon:suggestedStringRepresentation>hasInputValue</ethon:suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/InputValue"/>
+    <rdfs:comment xml:lang="en">Relates a FunctionCall or a LogEntry to an Input Value that is represented by it. For example a Function Call add(5,6) would be related to two Input Values, one for each Input to the Function.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_EQ">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Equality comparison.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">14</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EQ</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DIFFICULTY">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DIFFICULTY</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdfs:comment xml:lang="en">Get the block's difficulty.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">44</hexValue>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH31">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">7e</hexValue>
+    <rdfs:comment xml:lang="en">Place 31 byte item on the stack.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH31</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/cost">
+    <ethon:suggestedStringRepresentation>cost</ethon:suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+    <rdfs:comment xml:lang="en">Specifies the amount of gas that has to be paid to execute an Opcode.</rdfs:comment>
+    <rdfs:label xml:lang="en">cost</rdfs:label>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/OutputValue">
+    <rdfs:label xml:lang="en">Output Value</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+    <ethon:suggestedStringRepresentation>OutputValue</ethon:suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">Represents an Output Value of a Function Call. For example, if a smart contract has the function decryptXY(string x, bytes32 y) returns(string) and the function is called in a Contract Message, the returned string is represented as an instance of this class. The return value itself is a direct data property of this class, while the data type, the position and name are data properties of the the Output of this Output Value.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP4">
+    <rdfs:comment xml:lang="en">Exchange 1st and 5th stack items.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">93</hexValue>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP4</name>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_EXTCODESIZE">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsAdded>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">3b</hexValue>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</cost>
+    <rdfs:comment xml:lang="en">Get size of an account's code.</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EXTCODESIZE</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/hexValue">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Specifies the hexadecimal code that represents an Opcode. This is the actual value used for the Opcode in byte code.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:label xml:lang="en">hex Value</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ethon:suggestedStringRepresentation>hexValue</ethon:suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_GASPRICE">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GASPRICE</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Get price of gas in current environment.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">3a</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab19">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab20"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PC">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">58</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Get the value of the program counter prior to the increment.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PC</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_CALLDATASIZE">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Get size of input data in current environment. This pertains to the input data passed with the message call instruction or transaction.</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CALLDATASIZE</name>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">36</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP8">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</stackItemsRemoved>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP8</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">97</hexValue>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Exchange 1st and 9th stack items.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</stackItemsAdded>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH28">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">7b</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH28</name>
+    <rdfs:comment xml:lang="en">Place 28 byte item on the stack.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_CODECOPY">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</stackItemsAdded>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">39</hexValue>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CODECOPY</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Get price of gas in current environment. This is the gas price specified by the originating transaction.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Output">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+    <rdfs:label xml:lang="en">Output</rdfs:label>
+    <rdfs:comment xml:lang="en">An Output represents a single return value of a Function in a smart contract. It's properties include a data type of the Output Value, a name and a position in the signature of its Function.</rdfs:comment>
+    <ethon:suggestedStringRepresentation>Output</ethon:suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_NUMBER">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">43</hexValue>
+    <rdfs:comment xml:lang="en">Get the block's number.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NUMBER</name>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_CALLER">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CALLER</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">33</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Get caller address. This is the address of the account that is directly responsible for this execution.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP14">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">8d</hexValue>
+    <rdfs:comment xml:lang="en">Duplicate 14th stack item.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</stackItemsRemoved>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP14</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/StaticFunction">
+    <rdfs:comment xml:lang="en">Static Functions are Functions don't change the state of the blockchain. They can be executed on the local copy of the blockchain and it's not necessary to broadcast the call to the network. Calling a Static Function doesn't cost any gas. They are only executed by the node calling it.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ethon:suggestedStringRepresentation>DynamicFunction</ethon:suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">Static Function</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH30">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH30</name>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Place 30 byte item on the stack.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">7d</hexValue>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_RETURN">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Halt execution returning output data.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RETURN</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">f3</hexValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_JUMP">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Alter the program counter.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">JUMP</name>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">56</hexValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_MSIZE">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MSIZE</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">59</hexValue>
+    <rdfs:comment xml:lang="en">Get the size of active memory in bytes.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab14">
+    <rdf:rest rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab15"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/Contracts/Input"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/ofOutput">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/OutputValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ethon:suggestedStringRepresentation>ofOutput</ethon:suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Output"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">of Output</rdfs:label>
+    <rdfs:comment>Relates an Output Value to the Output it is a value of.</rdfs:comment>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/ofInput">
+    <ethon:suggestedStringRepresentation>ofInput</ethon:suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/InputValue"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Input"/>
+    <rdfs:label xml:lang="en">of Input</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP5">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP5</name>
+    <rdfs:comment xml:lang="en">Duplicate 5th stack item.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">84</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Input">
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+    <ethon:suggestedStringRepresentation>Input</ethon:suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Input</rdfs:label>
+    <rdfs:comment xml:lang="en">An Input represents a single input parameter of a Function or an Event. It's properties include a data type of the Input Value a name and a position in the signature of its Function or Event. 
+
+If it represents an Input of an Event it can have the boolean property isIndexed. If true, the values of this Input should be stored in a modified merkle patricia tree structure and be created as LogTopics to be easily queryable. Otherwise the value is stored in the data of a LogEntry.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">EthOn Contracts Object Property</rdfs:label>
+    <rdfs:comment xml:lang="en">Groups all EthOn Contracts extension Object Properties</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH23">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">76</hexValue>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH23</name>
+    <rdfs:comment xml:lang="en">Place 23 byte item on the stack.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SUICIDE">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">f5</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SUICIDE</name>
+    <rdfs:comment xml:lang="en">Halt execution and register account for later deletion.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/signature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">The signature of the function as specified in the source language of the contract.</rdfs:comment>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">signature</rdfs:label>
+    <ethon:suggestedStringRepresentation>signature</ethon:suggestedStringRepresentation>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH7">
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">66</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdfs:comment xml:lang="en">Place 7 byte item on the stack.</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH7</name>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH1">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">60</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH1</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Place 1 byte item on the stack.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/isPayable">
+    <rdfs:comment xml:lang="en">True if a Function can receive Ether together with a FunctionCall.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ethon:suggestedStringRepresentation>isPayable</ethon:suggestedStringRepresentation>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">is payable</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_MSTORES">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">53</hexValue>
+    <rdfs:comment xml:lang="en">Save byte to memory.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MSTORES</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_ADDMOD">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</stackItemsAdded>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ADDMOD</name>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</cost>
+    <rdfs:comment xml:lang="en">Modulo addition operation.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">08</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab12">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/Contracts/Output"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/topic">
+    <ethon:suggestedStringRepresentation>topic</ethon:suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdfs:comment xml:lang="en">An Event can be identified by its topic. It is generated from an abbreviated version of its signature. For example the Event Foo(uint32 x, bool y) has the abbreviated signature Foo(uint32,bool). The Keccac 256 hash of this forms the event topic.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Event"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#events"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">topic</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP1">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP1</name>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsRemoved>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">90</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdfs:comment xml:lang="en">Exchange 1st and 2nd stack items.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SIGNEXTEND">
+    <rdfs:comment xml:lang="en">Extend length of two's complement signed integer.</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SIGNEXTEND</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">0b</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode">
+    <rdfs:comment xml:lang="en">An Opcode an instruction in the instruction set of the Ethereum virtual machine. The set of existing Opcodes are defined as Individuals (instances) of this class.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+    <rdfs:label xml:lang="en">Opcode</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <ethon:suggestedStringRepresentation>Opcode</ethon:suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_CREATE">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</stackItemsAdded>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Create a new account with associated code.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CREATE</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">f0</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32000</cost>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP3">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Exchange 1st and 4th stack items.</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP3</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">92</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</stackItemsAdded>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ContractAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Function">
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+    <rdfs:comment xml:lang="en">Functions are structures in smart contracts that implement functionality, just as functions or methods do in general programming. Functions can be called by Accounts (External Accounts or Contract Accounts) to execute the code stored in it. Functions can have Inputs (parameters) and Outputs (return values).</rdfs:comment>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">function</rdfs:label>
+    <ethon:suggestedStringRepresentation>Function</ethon:suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH19">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Place 19 byte item on the stack.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">72</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH19</name>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/canonicalSignature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <ethon:suggestedStringRepresentation>canonicalSignature</ethon:suggestedStringRepresentation>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+    <rdfs:comment xml:lang="en">The signature of the function in the canonical form which is used to create the functionSelector. Example: `bar(uint32,bool)`</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/FunctionSelector"/>
+    <rdfs:seeAlso>https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI</rdfs:seeAlso>
+    <rdfs:label xml:lang="en">canonicalSignature</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/byteSignature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/FunctionSelector"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">byte signature</rdfs:label>
+    <ethon:suggestedStringRepresentation>byteSignature</ethon:suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">A function can be identified by its byte signature. It is generated from the canonical signature. For example the Function `bar(uint32 x, bool y)` returns `(bool r)` has the canonical signature `bar(uint32,bool)`. The first 4 bytes of the Keccac 256 hash of this forms the byte signature of the function, in the example that would be `0xcdcd77c0`.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#function-selector-and-argument-encoding"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH2">
+    <rdfs:comment xml:lang="en">Place 2 byte item on the stack.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">61</hexValue>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH2</name>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/hasOutputValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/FunctionCall"/>
+    <rdfs:comment xml:lang="en">Relates a FunctionCall to an Output Value that is represented by it. For example a Function Call add(5,6) that returns the sum of two integers would be related to one Output Value, that contains the result of the addition.</rdfs:comment>
+    <ns:term_status>unstable</ns:term_status>
+    <ethon:suggestedStringRepresentation>hasOutputValue</ethon:suggestedStringRepresentation>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/OutputValue"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:label xml:lang="en">has Output Value</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_STOP">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Halts execution.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">00</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">STOP</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP16">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</stackItemsRemoved>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Exchange 1st and 17th stack items.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</stackItemsAdded>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">9f</hexValue>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP16</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH21">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH21</name>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">74</hexValue>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Place 21 byte item on the stack.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP15">
+    <rdfs:comment xml:lang="en">Exchange 1st and 16th stack items.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">9e</hexValue>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP15</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</stackItemsRemoved>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_COINBASE">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">41</hexValue>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">COINBASE</name>
+    <rdfs:comment xml:lang="en">Get the block's beneficiary address.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP11">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">8a</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Duplicate 11th stack item.</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP11</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty">
+    <rdfs:comment xml:lang="en">Groups all EthOn Contracts extension Data Properties.</rdfs:comment>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:label xml:lang="en">EthOn Contracts Data Property</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP13">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</stackItemsAdded>
+    <rdfs:comment xml:lang="en">Exchange 1st and 14th stack items.</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP13</name>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</stackItemsRemoved>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">9c</hexValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_CALL">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CALL</name>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</cost>
+    <rdfs:comment xml:lang="en">Message-call into an account.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">f1</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/implementsFunction">
+    <ethon:suggestedStringRepresentation>implementsFunction</ethon:suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">implements Function</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
+    <rdfs:comment xml:lang="en">Relates a Contract Account to Functions it implements.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP1">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP1</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">80</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsAdded>
+    <rdfs:comment xml:lang="en">Duplicate 1st stack item.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SLOAD">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">54</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SLOAD</name>
+    <rdfs:comment xml:lang="en">Load word from storage.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</cost>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH18">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Place 18 byte item on the stack.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">71</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH18</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/FunctionCall">
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Msg"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Function Call</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ethon:suggestedStringRepresentation>FunctionCall</ethon:suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">Functions Calls are calls to Functions that are recorded in the blockchain. They are a subset of all Messages in a blockchain. Examples for Function Calls are Transactions (which is a sub-type of a Message) that call a Dynamic Function in a smart contract and Contract Calls that call Dynamic or Static Functions in smart contracts. Function Calls originate from either an External Account or a Contract Account and are always directed towards Contract Accounts.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_LT">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LT</name>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Less-than comparison.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">10</hexValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH22">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH22</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Place 22 byte item on the stack.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">75</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_LOG3">
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">a3</hexValue>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LOG3</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1500</cost>
+    <rdfs:comment xml:lang="en">Append log record with three topics.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/implementsEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <ethon:suggestedStringRepresentation>implementsEvent</ethon:suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Relates a Contract Account to Events it implements.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
+    <rdfs:label xml:lang="en">implements Event</rdfs:label>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Event"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SHA3">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SHA3</name>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">20</hexValue>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Compute Keccak-256 hash</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</cost>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Event">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Event</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+    <rdfs:comment xml:lang="en">Events are structures implemented in smart contracts in order to create a LogEntry. Once created they cannot be accessed from the contract but can be used from the outside, e.g. by a web application that reacts to Events in a smart contract.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ethon:suggestedStringRepresentation>Event</ethon:suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP6">
+    <rdfs:comment xml:lang="en">Duplicate 6th stack item.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">85</hexValue>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP6</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Msg">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP15">
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">8e</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP15</name>
+    <rdfs:comment xml:lang="en">Duplicate 15th stack item.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/type">
+    <ethon:suggestedStringRepresentation>type</ethon:suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">type</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">Specifies the canonical type of the Input or Output, e.g. uint32.</rdfs:comment>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab16"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP10">
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">99</hexValue>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP10</name>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdfs:comment xml:lang="en">Exchange 1st and 11th stack items.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</stackItemsRemoved>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</stackItemsAdded>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/name">
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">A property that defines the name of Functions, Events, Inputs, Outputs and Opcodes as specified in code or specification. There can be only one name for each Individual of these types.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+    <rdfs:label xml:lang="en">name</rdfs:label>
+    <rdfs:domain rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab7"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <ethon:suggestedStringRepresentation>name</ethon:suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/hasInput">
+    <rdfs:comment xml:lang="en">Relates an Event or a Function to an Input of that Event or Function. An Event or Function may have 0 or more Inputs but an Input can only belong to a single Event or Function.</rdfs:comment>
+    <rdfs:label xml:lang="en">has Input</rdfs:label>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Input"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <ethon:suggestedStringRepresentation>hasInput</ethon:suggestedStringRepresentation>
+    <rdfs:domain rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab1"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SUB">
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">03</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SUB</name>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Substraction operation.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH25">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH25</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">78</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdfs:comment xml:lang="en">Place 25 byte item on the stack.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SDIV">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SDIV</name>
+    <rdfs:comment xml:lang="en">Signed integer division operstion (truncated).</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">05</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <ns:term_status>unstable</ns:term_status>
+    <dc:creator>Johannes Pfeffer</dc:creator>
+    <owl:versionInfo>0.0.1</owl:versionInfo>
+    <vann:preferredNamespacePrefix>contracts</vann:preferredNamespacePrefix>
+    <dc:title>EthOn Contracts - An extension to EthOn that models some aspects of smart contracts</dc:title>
+    <rdfs:seeAlso rdf:resource="https://github.com/ConsenSys/EthOn"/>
+    <owl:versionIRI rdf:resource="http://ethon.consensys.net/Contracts/v0/"/>
+    <rdfs:comment>This ontology extends EthOn with concepts that can be used to model some aspects of smart contracts, including Functions, Events, Inputs, Outputs and Opcodes.</rdfs:comment>
+    <owl:imports rdf:resource="http://ethon.consensys.net/v0/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_RETURNDATASIZE">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RETURNDATASIZE</name>
+    <ns1:isRequiredBy rdf:resource="http://ethon.consensys.net/ProtocolVariant_Byzantium"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">3d</hexValue>
+    <rdfs:comment xml:lang="en">Pushes the size of the return data buffer onto the stack.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_OR">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OR</name>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">17</hexValue>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Bitwise OR operation.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH13">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH13</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">6c</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdfs:comment xml:lang="en">Place 13 byte item on the stack.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab11">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:rest rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab12"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP9">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">98</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Exchange 1st and 10th stack items.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP9</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</stackItemsAdded>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP8">
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">87</hexValue>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP8</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</stackItemsAdded>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</stackItemsRemoved>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Duplicate 8th stack item.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DIV">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Integer division operation.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">04</hexValue>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DIV</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_ADDRESS">
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">30</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ADDRESS</name>
+    <rdfs:comment xml:lang="en">Get address of currently executing account.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_AND">
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">16</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Bitwise AND operation.</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AND</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_EXP">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">0a</hexValue>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</cost>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EXP</name>
+    <rdfs:comment xml:lang="en">Exponential operation</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/usesOpcode">
+    <rdfs:comment xml:lang="en">Relates a Contract Account to an Opcode used in the code of that Account.</rdfs:comment>
+    <rdfs:label xml:lang="en">uses Opcode</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <ethon:suggestedStringRepresentation>usesOpcode</ethon:suggestedStringRepresentation>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH16">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">6f</hexValue>
+    <rdfs:comment xml:lang="en">Place 16 byte item on the stack.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH16</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SMOD">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SMOD</name>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">07</hexValue>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</cost>
+    <rdfs:comment xml:lang="en">Signed modulo remainder operation.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/isIndexed">
+    <rdfs:comment xml:lang="en">True if the Input of an Event should be stored as a LogTopic of a LogEntry. Up to three parameters can receive this property which will cause the respective arguments to be treated as LogTopics instead of data. All non-indexed arguments will be stored in the data part of the LogEntry that represents the Event.</rdfs:comment>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Input"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">is indexed</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ethon:suggestedStringRepresentation>isIndexed</ethon:suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_CALLVALUE">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">34</hexValue>
+    <rdfs:comment xml:lang="en">Get deposited value by the instruction/transaction responsible for this execution.</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CALLVALUE</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP4">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP4</name>
+    <rdfs:comment xml:lang="en">Duplicate 4th stack item.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</stackItemsRemoved>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">83</hexValue>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab21">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/Contracts/OutputValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/callsFunction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Relates a Function Call to the Function that is called by it.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/FunctionCall"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
+    <ethon:suggestedStringRepresentation>callsFunction</ethon:suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
+    <rdfs:label xml:lang="en">calls function</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_GAS">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Get the amount of available gas, including the corresponding reduction for the cost of this instruction.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GAS</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">5a</hexValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_ORIGIN">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Get execution origination address. This is the sender of the original transaction; iti is never an account with non-empty associated code.</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORIGIN</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">32</hexValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/DynamicFunction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ethon:suggestedStringRepresentation>DynamicFunction</ethon:suggestedStringRepresentation>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
+    <rdfs:label xml:lang="en">Dynamic Function</rdfs:label>
+    <owl:disjointWith rdf:resource="http://ethon.consensys.net/Contracts/StaticFunction"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Dynamic Functions are Functions that potentially change the state of the blockchain when executed. Executing a dynamic function costs gas and is broadcast to the network. When a Dynamic Function is called, the resulting computation is carried out by every Full Node in the Network.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/isAnonymous">
+    <rdfs:label xml:lang="en">is anonymous</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Event"/>
+    <ethon:suggestedStringRepresentation>isAnonymous</ethon:suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Specifies if an Event is anonymous. Anonymous Events will not store the Event signature as the LogTopic of a LogEntry.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_BLOCKHASH">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BLOCKHASH</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">40</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Get the hash of one of the 256 most recent complete blocks.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH29">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Place 29 byte item on the stack.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">7c</hexValue>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH29</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP11">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">9a</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</stackItemsRemoved>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP11</name>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</stackItemsAdded>
+    <rdfs:comment xml:lang="en">Exchange 1st and 12th stack items.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_MUL">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MUL</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">02</hexValue>
+    <rdfs:comment xml:lang="en">Multiplication operation.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_BYTE">
+    <rdfs:comment xml:lang="en">Retrieve single byte from word.</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BYTE</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">1a</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_MULMOD">
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">09</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MULMOD</name>
+    <rdfs:comment xml:lang="en">Modulo multiplication operation.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</stackItemsAdded>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH26">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdfs:comment xml:lang="en">Place 26 byte item on the stack.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">79</hexValue>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH26</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_MLOAD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">51</hexValue>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MLOAD</name>
+    <rdfs:comment xml:lang="en">Load word from memory.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_CODESIZE">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CODESIZE</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">38</hexValue>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Copy code running in current environment to memory.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH8">
+    <rdfs:comment xml:lang="en">Place 8 byte item on the stack.</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH8</name>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">67</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP12">
+    <rdfs:comment xml:lang="en">Exchange 1st and 13th stack items.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</stackItemsRemoved>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">9b</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP12</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_ISZERO">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ISZERO</name>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">15</hexValue>
+    <rdfs:comment xml:lang="en">Simple not operator.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_EXTCODECOPY">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">3c</hexValue>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EXTCODECOPY</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</stackItemsAdded>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Copy an account's code to memory.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_MOD">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">06</hexValue>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MOD</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Modulo remainder operation.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</cost>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP7">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP7</name>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">96</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Exchange 1st and 8th stack items.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_STATICCALL">
+    <ns1:isRequiredBy rdf:resource="http://ethon.consensys.net/ProtocolVariant_Byzantium"/>
+    <rdfs:comment xml:lang="en">Non-state-changing call to another contract. Any modifications to the state during the call (and its subcalls, if present) are disallowed.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">STATICCALL</name>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">f4</hexValue>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</cost>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_NOT">
+    <rdfs:comment xml:lang="en">Bitwise NOT operation.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">19</hexValue>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NOT</name>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH4</name>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Place 4 byte item on the stack.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">63</hexValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Duplicate 9th stack item.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP9</name>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">88</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SGT">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SGT</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">13</hexValue>
+    <rdfs:comment xml:lang="en">Signed greater-than comparison.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/representsEvent">
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <ethon:suggestedStringRepresentation>representsEvent</ethon:suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Event"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/LogEntry"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
+    <rdfs:comment xml:lang="en">Relates a LogEntry to the Event it represents.</rdfs:comment>
+    <rdfs:label xml:lang="en">represents Event</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab10">
+    <rdf:first rdf:resource="http://ethon.consensys.net/Contracts/Input"/>
+    <rdf:rest rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab11"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH5">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH5</name>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Place 5 byte item on the stack.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">64</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_CALLCODE">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">f2</hexValue>
+    <rdfs:comment xml:lang="en">Message-call into this account with an alternative account's code.</rdfs:comment>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CALLCODE</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/stackItemsAdded">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ethon:suggestedStringRepresentation>stackItemsAdded</ethon:suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">Specifies the number of items added to the stack by executing an Opcode.</rdfs:comment>
+    <rdfs:label xml:lang="en">stack items added</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_POP">
+    <rdfs:comment xml:lang="en">Remove item from stack</rdfs:comment>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">POP</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">50</hexValue>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsAdded>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab20">
+    <rdf:first rdf:resource="http://ethon.consensys.net/Contracts/InputValue"/>
+    <rdf:rest rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab21"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP14">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</stackItemsAdded>
+    <rdfs:comment xml:lang="en">Exchange 1st and 15th stack items.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">9d</hexValue>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP14</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_ADD">
+    <rdfs:comment xml:lang="en">Addition operation.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ADD</name>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">01</hexValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/position">
+    <rdfs:domain rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab13"/>
+    <ns:term_status>unstable</ns:term_status>
+    <ethon:suggestedStringRepresentation>position</ethon:suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment xml:lang="en">Specifies the position of the Input or Output parameter in an Event's or Function's signature.</rdfs:comment>
+    <rdfs:label xml:lang="en">position</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SLT">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SLT</name>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">12</hexValue>
+    <rdfs:comment xml:lang="en">Signed less-than comparison.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_LOG0">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">a0</hexValue>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">375</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Append log record with no topics.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LOG0</name>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab3">
+    <rdf:first rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SSTORE">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SSTORE</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Save word to storage.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">55</hexValue>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</cost>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab14"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP6">
+    <rdfs:comment xml:lang="en">Exchange 1st and 7th stack items.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">95</hexValue>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP6</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</stackItemsRemoved>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</stackItemsAdded>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab9">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
+    <rdf:rest rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab10"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_CALLDATALOAD">
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">35</hexValue>
+    <rdfs:comment xml:lang="en">Get input data of current environment. This pertains to the input data passed with the message call instruction or transaction.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsAdded>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CALLDATALOAD</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab8">
+    <rdf:first rdf:resource="http://ethon.consensys.net/Contracts/Event"/>
+    <rdf:rest rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab9"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP13">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP13</name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Duplicate 13th stack item.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">8c</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</stackItemsRemoved>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP7">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP7</name>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">86</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Duplicate 7th stack item.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_GT">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GT</name>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdfs:comment xml:lang="en">Greater-than comparison.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">11</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH17">
+    <rdfs:comment xml:lang="en">Place 17 byte item on the stack.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">70</hexValue>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH17</name>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab6">
+    <rdf:first rdf:resource="http://ethon.consensys.net/Contracts/FunctionCall"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/InputValue">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+    <rdfs:label xml:lang="en">Input Value</rdfs:label>
+    <ethon:suggestedStringRepresentation>InputValue</ethon:suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">Represents an Input Value of a Function Call or or a Log Entry. For example, if a smart contract has the function decryptXY(string x, bytes32 y) and the function is called in a Message, the two input values are each represented by an instance of this class. The value itself is a direct data property of this class, while the data type, the position and name are data properties of the the Input of this Input Value.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/EthOnContractsConcept">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab16">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab17"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_LOG1">
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">750</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LOG1</name>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</stackItemsAdded>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">a1</hexValue>
+    <rdfs:comment xml:lang="en">Append log record with one topic.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab17">
+    <rdf:first rdf:resource="http://ethon.consensys.net/Contracts/Input"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:rest rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab18"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_SWAP2">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</stackItemsRemoved>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">91</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SWAP2</name>
+    <rdfs:comment xml:lang="en">Exchange 1st and 3rd stack items.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</stackItemsAdded>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab5">
+    <rdf:first rdf:resource="http://ethon.consensys.net/LogEntry"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:rest rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/LogEntry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_DUP16">
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</stackItemsAdded>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Duplicate 16th stack item.</rdfs:comment>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">8f</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</stackItemsRemoved>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DUP16</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_GASLIMIT">
+    <rdfs:comment xml:lang="en">Get the block's gas limit.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GASLIMIT</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">45</hexValue>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_MSTORE">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MSTORE</name>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">52</hexValue>
+    <rdfs:comment xml:lang="en">Save word to memory.</rdfs:comment>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/FunctionSelector">
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+    <rdfs:label xml:lang="en">function selector</rdfs:label>
+    <ethon:suggestedStringRepresentation>FunctionSelector</ethon:suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">A function selector can be represented either by a canonical text form of the function signature (e.g. `exampleFunction(bytes32)`) or by its bytes form (e.g. `0xfc13a76a`). The latter is used by the EVM to call a certain function in a contract. It is created by taking the first 4 bytes of the keccac hash of the canonical text form of the signature.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab15">
+    <rdf:first rdf:resource="http://ethon.consensys.net/Contracts/Output"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_REVERT">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</cost>
+    <rdfs:comment xml:lang="en">Throw an exception without consuming all gas.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">fd</hexValue>
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsAdded>
+    <ns1:isRequiredBy rdf:resource="http://ethon.consensys.net/ProtocolVariant_Byzantium"/>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RETURN</name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/contributor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/isConstant">
+    <rdfs:comment xml:lang="en">Functions with the property isConstant set to true promise to not modify the state of the blockchain. For instance, in solidity this can be achieved by a function modifier that declares the function to be constant (solidity doesn't enforce this, yet).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">is constant</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <ethon:suggestedStringRepresentation>isConstant</ethon:suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Opcode_PUSH27">
+    <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <cost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cost>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
+    <rdfs:comment xml:lang="en">Place 27 byte item on the stack.</rdfs:comment>
+    <stackItemsAdded rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsAdded>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PUSH27</name>
+    <hexValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">7a</hexValue>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab18">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/Contracts/Output"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab2">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/Contracts/Event"/>
+    <rdf:rest rdf:nodeID="ff30bb7223ed24a24b63938e0b41c147ab3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/isRequiredBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/suggestedStringRepresentation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+</rdf:RDF>
